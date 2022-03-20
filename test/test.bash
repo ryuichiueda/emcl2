@@ -1,7 +1,7 @@
 #!/bin/bash -evx
 
 export TURTLEBOT3_MODEL=burger
-xvfb-run --auto-servernum -s "-screen 0 1400x900x24" roslaunch emcl test.launch &
+xvfb-run --auto-servernum -s "-screen 0 1400x900x24" roslaunch emcl2 test.launch &
 sleep 15
 
 ### ESTIMATION RECOVERY TEST ###

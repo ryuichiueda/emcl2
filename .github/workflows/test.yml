@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build image
         run: |
-         git clone -b "${GITHUB_REF#refs/heads/}" https://github.com/ryuichiueda/emcl.git
+         git clone -b "${GITHUB_REF#refs/heads/}" https://github.com/ryuichiueda/emcl2.git
          cd emcl/test/docker
          sed -i "s;clone;clone -b ${GITHUB_REF#refs/heads/};" Dockerfile
          docker build -t test .
