@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 OdomModel::OdomModel(double ff, double fr, double rf, double rr) 
 	: std_norm_dist_(0.0, 1.0), fw_dev_(0.0), rot_dev_(0.0), engine_(seed_gen_())

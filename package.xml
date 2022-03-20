@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>emcl</name>
+  <name>emcl2</name>
   <version>0.0.0</version>
-  <description>The emcl package</description>
+  <description>The emcl2 package</description>
 
   <maintainer email="ryuichiueda@gmail.com">Ryuichi Ueda</maintainer>
   <license>LGPL</license>
 
-  <url type="website">https://github.com/ryuichiueda/emcl/</url>
+  <url type="website">https://github.com/ryuichiueda/emcl2/</url>
 
   <depend>tf2</depend>
   <depend>tf2_ros</depend>

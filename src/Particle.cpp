@@ -6,7 +6,7 @@
 #include "emcl/Mcl.h"
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 
 

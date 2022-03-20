@@ -10,7 +10,7 @@
 #include "nav_msgs/GetMap.h"
 #include "std_msgs/Float32.h"
 
-namespace emcl {
+namespace emcl2 {
 
 EMclNode::EMclNode() : private_nh_("~")
 {

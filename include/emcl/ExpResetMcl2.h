@@ -6,7 +6,7 @@
 
 #include "emcl/Mcl.h"
 
-namespace emcl {
+namespace emcl2 {
 
 class ExpResetMcl2 : public Mcl
 {

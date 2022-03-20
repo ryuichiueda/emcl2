@@ -6,7 +6,7 @@
 #include <sstream>
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 Pose::Pose(double x, double y, double t)
 {

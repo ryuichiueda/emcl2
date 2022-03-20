@@ -5,7 +5,7 @@
 #include "emcl/Scan.h"
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 Scan& Scan::operator=(const Scan &s)
 {

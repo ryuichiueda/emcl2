@@ -10,7 +10,7 @@
 #include "nav_msgs/GetMap.h"
 #include "std_msgs/Float32.h"
 
-namespace emcl {
+namespace emcl2 {
 
 EMcl2Node::EMcl2Node() : private_nh_("~")
 {
@@ -314,7 +314,7 @@ int main(int argc, char **argv)
 {
 
 	ros::init(argc, argv, "mcl_node");
-	emcl::EMcl2Node node;
+	emcl2::EMcl2Node node;
 
 	ros::Rate loop_rate(node.getOdomFreq());
 	while (ros::ok()){

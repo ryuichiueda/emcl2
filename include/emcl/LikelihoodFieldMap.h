@@ -10,7 +10,7 @@
 #include "emcl/Pose.h"
 #include "nav_msgs/OccupancyGrid.h"
 
-namespace emcl {
+namespace emcl2 {
 
 class LikelihoodFieldMap
 {

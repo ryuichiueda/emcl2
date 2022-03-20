@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 ExpResetMcl2::ExpResetMcl2(const Pose &p, int num, const Scan &scan,
 				const std::shared_ptr<OdomModel> &odom_model,

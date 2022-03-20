@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <cmath>
 
-namespace emcl {
+namespace emcl2 {
 
 Mcl::Mcl(const Pose &p, int num, const Scan &scan,
 		const std::shared_ptr<OdomModel> &odom_model,

@@ -6,7 +6,7 @@
 
 #include <sstream>
 
-namespace emcl {
+namespace emcl2 {
 
 class Pose
 {

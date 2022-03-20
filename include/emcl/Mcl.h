@@ -15,7 +15,7 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include "sensor_msgs/LaserScan.h"
 
-namespace emcl {
+namespace emcl2 {
 
 class Mcl
 {

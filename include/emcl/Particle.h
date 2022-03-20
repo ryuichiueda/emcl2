@@ -7,7 +7,7 @@
 #include "emcl/Pose.h"
 #include "emcl/LikelihoodFieldMap.h"
 
-namespace emcl {
+namespace emcl2 {
 
 
 

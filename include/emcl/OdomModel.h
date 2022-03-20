@@ -6,7 +6,7 @@
 
 #include <random>
 
-namespace emcl {
+namespace emcl2 {
 
 
 

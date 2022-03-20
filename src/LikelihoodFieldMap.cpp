@@ -7,7 +7,7 @@
 #include <random>
 #include <algorithm>
 
-namespace emcl {
+namespace emcl2 {
 
 LikelihoodFieldMap::LikelihoodFieldMap(const nav_msgs::OccupancyGrid &map, double likelihood_range)
 {

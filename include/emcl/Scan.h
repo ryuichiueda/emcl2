@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 
-namespace emcl {
+namespace emcl2 {
 
 class Scan
 {
