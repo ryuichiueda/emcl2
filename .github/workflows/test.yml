@@ -14,7 +14,7 @@ jobs:
       - name: Build image
         run: |
          git clone -b "${GITHUB_REF#refs/heads/}" https://github.com/ryuichiueda/emcl2.git
-         cd emcl/test/docker
+         cd emcl2/test/docker
          sed -i "s;clone;clone -b ${GITHUB_REF#refs/heads/};" Dockerfile
          docker build -t test .
       - name: Reset and navigation test on Gazebo
