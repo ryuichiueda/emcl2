@@ -10,6 +10,8 @@ This package is an improved version of [ryuichi/emcl](https://github.com/ryuichi
 
 [![](https://img.youtube.com/vi/dqS7KgGxwBs/0.jpg)](https://www.youtube.com/watch?v=dqS7KgGxwBs)
 
+[![](https://img.youtube.com/vi/n9tzKY6ua_o/0.jpg)](https://www.youtube.com/watch?v=n9tzKY6ua_o)
+
 ## Nodes
 
 ### emcl2_node
