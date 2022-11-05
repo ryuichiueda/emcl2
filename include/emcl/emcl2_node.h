@@ -39,6 +39,8 @@ private:
 
 	ros::ServiceServer global_loc_srv_;
 
+	ros::Time scan_time_stamp_;
+
 	std::string footprint_frame_id_;
 	std::string global_frame_id_;
 	std::string odom_frame_id_;

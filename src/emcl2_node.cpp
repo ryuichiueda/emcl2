@@ -113,6 +113,7 @@ std::shared_ptr<LikelihoodFieldMap> EMcl2Node::initMap(void)
 
 void EMcl2Node::cbScan(const sensor_msgs::LaserScan::ConstPtr &msg)
 {
+    scan_time_stamp_ = msg->header.stamp;
     scan_frame_id_ = msg->header.frame_id;
     pf_->setScan(msg);
 }
@@ -214,7 +215,7 @@ void EMcl2Node::publishOdomFrame(double x, double y, double t)
 				
 		geometry_msgs::PoseStamped tmp_tf_stamped;
 		tmp_tf_stamped.header.frame_id = footprint_frame_id_;
-		tmp_tf_stamped.header.stamp = ros::Time(0);
+		tmp_tf_stamped.header.stamp = scan_time_stamp_;
 		tf2::toMsg(tmp_tf.inverse(), tmp_tf_stamped.pose);
 		
 		tf_->transform(tmp_tf_stamped, odom_to_map, odom_frame_id_);
@@ -225,7 +226,7 @@ void EMcl2Node::publishOdomFrame(double x, double y, double t)
 	}
 	tf2::convert(odom_to_map.pose, latest_tf_);
 	
-	ros::Time transform_expiration = (ros::Time(ros::Time::now().toSec() + 0.2));
+	ros::Time transform_expiration = (ros::Time(scan_time_stamp_.toSec() + 0.2));
 	geometry_msgs::TransformStamped tmp_tf_stamped;
 	tmp_tf_stamped.header.frame_id = global_frame_id_;
 	tmp_tf_stamped.header.stamp = transform_expiration;
