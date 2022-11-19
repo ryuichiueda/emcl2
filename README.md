@@ -89,6 +89,8 @@ This node also has a sensor resetting algorithm. When `~sensor_reset` is true, a
     * increment number when beams are picked from their sequence; the larger this number is, the fewer number of beams are used for calculation of likelihood
 * ~alpha_threshold (double, default: 0.5)
     * threshold of the alpha value for expansion resetting
+* ~open_space_threshold (double, default: 0.05)
+    * threshold of the valid beam rate for expansion resetting; the reset doesn't occur when the rate of beams in the valid range is smaller than this threshold
 * ~expansion_radius_position (double, default: 0.1[m])
     * maximum change of the position on the xy-plane when the reset replaces a particle
 * ~expansion_radius_orientation (double, default: 0.2[rad])
