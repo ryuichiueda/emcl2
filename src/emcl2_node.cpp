@@ -225,8 +225,9 @@ void EMcl2Node::publishOdomFrame(double x, double y, double t)
 		return;
 	}
 	tf2::convert(odom_to_map.pose, latest_tf_);
-	
-	ros::Time transform_expiration = (ros::Time(scan_time_stamp_.toSec() + 0.2));
+
+	double transform_tolerance = 0.2;
+	ros::Time transform_expiration = (ros::Time(scan_time_stamp_.toSec() + transform_tolerance));
 	geometry_msgs::TransformStamped tmp_tf_stamped;
 	tmp_tf_stamped.header.frame_id = global_frame_id_;
 	tmp_tf_stamped.header.stamp = transform_expiration;
