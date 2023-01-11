@@ -5,10 +5,10 @@
 #include "emcl/emcl2_node.h"
 #include "emcl/Pose.h"
 
-#include "tf2/utils.h"
-#include "geometry_msgs/PoseArray.h"
-#include "nav_msgs/GetMap.h"
-#include "std_msgs/Float32.h"
+#include <tf2/utils.h>
+#include <geometry_msgs/PoseArray.h>
+#include <nav_msgs/GetMap.h>
+#include <std_msgs/Float32.h>
 
 namespace emcl2 {
 
@@ -314,7 +314,7 @@ bool EMcl2Node::cbSimpleReset(std_srvs::Empty::Request& req, std_srvs::Empty::Re
 int main(int argc, char **argv)
 {
 
-	ros::init(argc, argv, "mcl_node");
+	ros::init(argc, argv, "emcl2_node");
 	emcl2::EMcl2Node node;
 
 	ros::Rate loop_rate(node.getOdomFreq());

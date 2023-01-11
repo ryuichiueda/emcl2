@@ -8,7 +8,7 @@
 #include <utility>
 #include "emcl/Scan.h"
 #include "emcl/Pose.h"
-#include "nav_msgs/OccupancyGrid.h"
+#include <nav_msgs/OccupancyGrid.h>
 
 namespace emcl2 {
 

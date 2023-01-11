@@ -12,8 +12,8 @@
 #include "emcl/OdomModel.h"
 #include "emcl/LikelihoodFieldMap.h"
 
-#include "nav_msgs/OccupancyGrid.h"
-#include "sensor_msgs/LaserScan.h"
+#include <nav_msgs/OccupancyGrid.h>
+#include <sensor_msgs/LaserScan.h>
 
 namespace emcl2 {
 
