@@ -5,7 +5,7 @@
 #include "emcl/OdomModel.h"
 #include <ros/ros.h>
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <cmath>
 
 namespace emcl2 {

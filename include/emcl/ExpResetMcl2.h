@@ -31,8 +31,6 @@ private:
 	bool sensor_reset_;
 
 	void expansionReset(void);
-
-//bool Particle::isPenetrating(
 	double nonPenetrationRate(int skip, LikelihoodFieldMap *map, Scan &scan);
 };
 

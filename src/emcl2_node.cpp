@@ -113,9 +113,9 @@ std::shared_ptr<LikelihoodFieldMap> EMcl2Node::initMap(void)
 
 void EMcl2Node::cbScan(const sensor_msgs::LaserScan::ConstPtr &msg)
 {
-    scan_time_stamp_ = msg->header.stamp;
-    scan_frame_id_ = msg->header.frame_id;
-    pf_->setScan(msg);
+	scan_time_stamp_ = msg->header.stamp;
+	scan_frame_id_ = msg->header.frame_id;
+	pf_->setScan(msg);
 }
 
 void EMcl2Node::initialPoseReceived(const geometry_msgs::PoseWithCovarianceStampedConstPtr& msg)
@@ -267,7 +267,7 @@ bool EMcl2Node::getOdomPose(double& x, double& y, double& yaw)
 	try{
 		this->tf_->transform(ident, odom_pose, odom_frame_id_);
 	}catch(tf2::TransformException e){
-    		ROS_WARN("Failed to compute odom pose, skipping scan (%s)", e.what());
+		ROS_WARN("Failed to compute odom pose, skipping scan (%s)", e.what());
 		return false;
 	}
 	x = odom_pose.pose.position.x;
@@ -288,7 +288,7 @@ bool EMcl2Node::getLidarPose(double& x, double& y, double& yaw, bool& inv)
 	try{
 		this->tf_->transform(ident, lidar_pose, base_frame_id_);
 	}catch(tf2::TransformException e){
-    		ROS_WARN("Failed to compute lidar pose, skipping scan (%s)", e.what());
+		ROS_WARN("Failed to compute lidar pose, skipping scan (%s)", e.what());
 		return false;
 	}
 	x = lidar_pose.pose.position.x;
