@@ -10,7 +10,7 @@ namespace emcl2 {
 
 class ExpResetMcl : public Mcl
 {
-public: 
+public:
 	ExpResetMcl(const Pose &p, int num, const Scan &scan,
 			const std::shared_ptr<OdomModel> &odom_model,
 			const std::shared_ptr<LikelihoodFieldMap> &map,

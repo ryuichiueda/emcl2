@@ -14,7 +14,7 @@ namespace emcl2 {
 
 class LikelihoodFieldMap
 {
-public: 
+public:
 	LikelihoodFieldMap(const nav_msgs::OccupancyGrid &map, double likelihood_range);
 	~LikelihoodFieldMap();
 

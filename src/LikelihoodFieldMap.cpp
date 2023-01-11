@@ -66,8 +66,8 @@ void LikelihoodFieldMap::setLikelihood(int x, int y, double range)
 	for(int i=-cell_num; i<=cell_num; i++)
 		for(int j=-cell_num; j<=cell_num; j++)
 			if(i+x >= 0 and j+y >= 0 and i+x < width_ and j+y < height_)
-				likelihoods_[i+x][j+y] = std::max(likelihoods_[i+x][j+y], 
-			                         std::min(weights[abs(i)], weights[abs(j)]));
+				likelihoods_[i+x][j+y] = std::max(likelihoods_[i+x][j+y],
+										std::min(weights[abs(i)], weights[abs(j)]));
 }
 
 void LikelihoodFieldMap::normalize(void)
@@ -87,7 +87,7 @@ void LikelihoodFieldMap::drawFreePoses(int num, std::vector<Pose> &result)
 	std::random_device seed_gen;
 	std::mt19937 engine{seed_gen()};
 	std::vector<std::pair<int, int> > chosen_cells;
-	
+
 	sample(free_cells_.begin(), free_cells_.end(), back_inserter(chosen_cells), num, engine);
 
 	for(auto &c : chosen_cells){

@@ -19,7 +19,7 @@ namespace emcl2 {
 
 class Mcl
 {
-public: 
+public:
 	Mcl(){}
 	Mcl(const Pose &p, int num, const Scan &scan,
 			const std::shared_ptr<OdomModel> &odom_model,

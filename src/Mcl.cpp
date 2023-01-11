@@ -62,8 +62,8 @@ void Mcl::resampling(void)
 			if(tick == particles_.size()){
 				ROS_ERROR("RESAMPLING FAILED");
 				exit(1);
-			}	
-		}	
+			}
+		}
 		chosen.push_back(tick);
 	}
 
@@ -78,7 +78,7 @@ void Mcl::sensorUpdate(double lidar_x, double lidar_y, double lidar_t, bool inv)
 
 	Scan scan;
 	int seq = -1;
-	while(seq != scan_.seq_){//trying to copy the latest scan before next 
+	while(seq != scan_.seq_){//trying to copy the latest scan before next
 		seq = scan_.seq_;
 		scan = scan_;
 	}
