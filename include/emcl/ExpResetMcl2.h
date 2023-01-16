@@ -10,7 +10,7 @@ namespace emcl2 {
 
 class ExpResetMcl2 : public Mcl
 {
-public: 
+public:
 	ExpResetMcl2(const Pose &p, int num, const Scan &scan,
 			const std::shared_ptr<OdomModel> &odom_model,
 			const std::shared_ptr<LikelihoodFieldMap> &map,
@@ -31,8 +31,6 @@ private:
 	bool sensor_reset_;
 
 	void expansionReset(void);
-
-//bool Particle::isPenetrating(
 	double nonPenetrationRate(int skip, LikelihoodFieldMap *map, Scan &scan);
 };
 

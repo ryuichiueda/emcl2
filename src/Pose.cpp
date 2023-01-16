@@ -53,7 +53,7 @@ Pose Pose::operator -(const Pose &p) const
 Pose Pose::operator =(const Pose &p)
 {
 	x_ = p.x_;
-       	y_ = p.y_;
+	y_ = p.y_;
 	t_ = p.t_;
 	return *this;
 }

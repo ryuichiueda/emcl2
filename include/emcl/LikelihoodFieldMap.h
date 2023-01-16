@@ -8,13 +8,13 @@
 #include <utility>
 #include "emcl/Scan.h"
 #include "emcl/Pose.h"
-#include "nav_msgs/OccupancyGrid.h"
+#include <nav_msgs/OccupancyGrid.h>
 
 namespace emcl2 {
 
 class LikelihoodFieldMap
 {
-public: 
+public:
 	LikelihoodFieldMap(const nav_msgs::OccupancyGrid &map, double likelihood_range);
 	~LikelihoodFieldMap();
 

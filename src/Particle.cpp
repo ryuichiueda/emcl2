@@ -18,9 +18,9 @@ Particle::Particle(double x, double y, double t, double w) : p_(x, y, t)
 double Particle::likelihood(LikelihoodFieldMap *map, Scan &scan)
 {
 	uint16_t t = p_.get16bitRepresentation();
-	double lidar_x = p_.x_ + scan.lidar_pose_x_*Mcl::cos_[t] 
+	double lidar_x = p_.x_ + scan.lidar_pose_x_*Mcl::cos_[t]
 				- scan.lidar_pose_y_*Mcl::sin_[t];
-	double lidar_y = p_.y_ + scan.lidar_pose_x_*Mcl::sin_[t] 
+	double lidar_y = p_.y_ + scan.lidar_pose_x_*Mcl::sin_[t]
 				+ scan.lidar_pose_y_*Mcl::cos_[t];
 	uint16_t lidar_yaw = Pose::get16bitRepresentation(scan.lidar_pose_yaw_);
 
@@ -59,10 +59,10 @@ bool Particle::wallConflict(LikelihoodFieldMap *map, Scan &scan, double threshol
 	for(int i : order){
 		if(not scan.valid(scan.ranges_[i]))
 			continue;
-	
+
 		double range = scan.ranges_[i];
 		uint16_t a = scan.directions_16bit_[i] + t + lidar_yaw;
-	
+
 		double hit_lx, hit_ly;
 		double hit_lx1, hit_ly1, r1;
 		uint16_t a1;

@@ -27,7 +27,6 @@ private:
 	double rot_var_per_rot_;
 
 	std::normal_distribution<> std_norm_dist_;
-	
 	std::random_device seed_gen_;
 	std::default_random_engine engine_;
 };

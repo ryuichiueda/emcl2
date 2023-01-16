@@ -20,7 +20,7 @@
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
-  <!-- MCL -->
+  <!-- EMCL2 -->
   <include file="$(find emcl2)/launch/emcl2.launch"/> 
 
   <!-- move_base -->

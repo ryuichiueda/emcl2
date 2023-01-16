@@ -5,10 +5,10 @@
 #include "emcl/emcl2_node.h"
 #include "emcl/Pose.h"
 
-#include "tf2/utils.h"
-#include "geometry_msgs/PoseArray.h"
-#include "nav_msgs/GetMap.h"
-#include "std_msgs/Float32.h"
+#include <tf2/utils.h>
+#include <geometry_msgs/PoseArray.h>
+#include <nav_msgs/GetMap.h>
+#include <std_msgs/Float32.h>
 
 namespace emcl2 {
 
@@ -113,9 +113,9 @@ std::shared_ptr<LikelihoodFieldMap> EMcl2Node::initMap(void)
 
 void EMcl2Node::cbScan(const sensor_msgs::LaserScan::ConstPtr &msg)
 {
-    scan_time_stamp_ = msg->header.stamp;
-    scan_frame_id_ = msg->header.frame_id;
-    pf_->setScan(msg);
+	scan_time_stamp_ = msg->header.stamp;
+	scan_frame_id_ = msg->header.frame_id;
+	pf_->setScan(msg);
 }
 
 void EMcl2Node::initialPoseReceived(const geometry_msgs::PoseWithCovarianceStampedConstPtr& msg)
@@ -197,7 +197,7 @@ void EMcl2Node::publishPose(double x, double y, double t,
 	p.pose.covariance[6*2 + 0] = tx_cov;
 	p.pose.covariance[6*1 + 2] = yt_cov;
 	p.pose.covariance[6*2 + 1] = yt_cov;
-	
+
 	tf2::Quaternion q;
 	q.setRPY(0, 0, t);
 	tf2::convert(q, p.pose.pose.orientation);
@@ -212,12 +212,12 @@ void EMcl2Node::publishOdomFrame(double x, double y, double t)
 		tf2::Quaternion q;
 		q.setRPY(0, 0, t);
 		tf2::Transform tmp_tf(q, tf2::Vector3(x, y, 0.0));
-				
+
 		geometry_msgs::PoseStamped tmp_tf_stamped;
 		tmp_tf_stamped.header.frame_id = footprint_frame_id_;
 		tmp_tf_stamped.header.stamp = scan_time_stamp_;
 		tf2::toMsg(tmp_tf.inverse(), tmp_tf_stamped.pose);
-		
+
 		tf_->transform(tmp_tf_stamped, odom_to_map, odom_frame_id_);
 
 	}catch(tf2::TransformException){
@@ -225,14 +225,15 @@ void EMcl2Node::publishOdomFrame(double x, double y, double t)
 		return;
 	}
 	tf2::convert(odom_to_map.pose, latest_tf_);
-	
-	ros::Time transform_expiration = (ros::Time(scan_time_stamp_.toSec() + 0.2));
+
+	double transform_tolerance = 0.2;
+	ros::Time transform_expiration = (ros::Time(scan_time_stamp_.toSec() + transform_tolerance));
 	geometry_msgs::TransformStamped tmp_tf_stamped;
 	tmp_tf_stamped.header.frame_id = global_frame_id_;
 	tmp_tf_stamped.header.stamp = transform_expiration;
 	tmp_tf_stamped.child_frame_id = odom_frame_id_;
 	tf2::convert(latest_tf_.inverse(), tmp_tf_stamped.transform);
-	
+
 	tfb_->sendTransform(tmp_tf_stamped);
 }
 
@@ -243,15 +244,15 @@ void EMcl2Node::publishParticles(void)
 	cloud_msg.header.frame_id = global_frame_id_;
 	cloud_msg.poses.resize(pf_->particles_.size());
 
-	for(int i=0;i<pf_->particles_.size();i++){		
+	for(int i=0;i<pf_->particles_.size();i++){
 		cloud_msg.poses[i].position.x = pf_->particles_[i].p_.x_;
 		cloud_msg.poses[i].position.y = pf_->particles_[i].p_.y_;
-		cloud_msg.poses[i].position.z = 0; 
+		cloud_msg.poses[i].position.z = 0;
 
 		tf2::Quaternion q;
 		q.setRPY(0, 0, pf_->particles_[i].p_.t_);
 		tf2::convert(q, cloud_msg.poses[i].orientation);
-	}		
+	}
 	particlecloud_pub_.publish(cloud_msg);
 }
 
@@ -261,12 +262,12 @@ bool EMcl2Node::getOdomPose(double& x, double& y, double& yaw)
 	ident.header.frame_id = footprint_frame_id_;
 	ident.header.stamp = ros::Time(0);
 	tf2::toMsg(tf2::Transform::getIdentity(), ident.pose);
-	
+
 	geometry_msgs::PoseStamped odom_pose;
 	try{
 		this->tf_->transform(ident, odom_pose, odom_frame_id_);
 	}catch(tf2::TransformException e){
-    		ROS_WARN("Failed to compute odom pose, skipping scan (%s)", e.what());
+		ROS_WARN("Failed to compute odom pose, skipping scan (%s)", e.what());
 		return false;
 	}
 	x = odom_pose.pose.position.x;
@@ -282,12 +283,12 @@ bool EMcl2Node::getLidarPose(double& x, double& y, double& yaw, bool& inv)
 	ident.header.frame_id = scan_frame_id_;
 	ident.header.stamp = ros::Time(0);
 	tf2::toMsg(tf2::Transform::getIdentity(), ident.pose);
-	
+
 	geometry_msgs::PoseStamped lidar_pose;
 	try{
 		this->tf_->transform(ident, lidar_pose, base_frame_id_);
 	}catch(tf2::TransformException e){
-    		ROS_WARN("Failed to compute lidar pose, skipping scan (%s)", e.what());
+		ROS_WARN("Failed to compute lidar pose, skipping scan (%s)", e.what());
 		return false;
 	}
 	x = lidar_pose.pose.position.x;
@@ -314,7 +315,7 @@ bool EMcl2Node::cbSimpleReset(std_srvs::Empty::Request& req, std_srvs::Empty::Re
 int main(int argc, char **argv)
 {
 
-	ros::init(argc, argv, "mcl_node");
+	ros::init(argc, argv, "emcl2_node");
 	emcl2::EMcl2Node node;
 
 	ros::Rate loop_rate(node.getOdomFreq());

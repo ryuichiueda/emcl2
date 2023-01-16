@@ -5,7 +5,7 @@
 #include "emcl/ExpResetMcl.h"
 #include <ros/ros.h>
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <cmath>
 
 namespace emcl2 {
@@ -32,7 +32,7 @@ void ExpResetMcl::sensorUpdate(double lidar_x, double lidar_y, double lidar_t, b
 
 	Scan scan;
 	int seq = -1;
-	while(seq != scan_.seq_){//trying to copy the latest scan before next 
+	while(seq != scan_.seq_){//trying to copy the latest scan before next
 		seq = scan_.seq_;
 		scan = scan_;
 	}
