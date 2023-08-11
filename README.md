@@ -111,6 +111,9 @@ The followings have never been implemented yet.
     * threshold for discarding scans whose ranges are larger than this value 
 
 
+## usage examples
+
+* https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202302248427441458
 
 
 ## ROS version 
