@@ -2,6 +2,8 @@
 
 ![test](https://github.com/ryuichiueda/emcl2/actions/workflows/test.yml/badge.svg)
 
+[**ROS 2 version is available!!**](https://github.com/CIT-Autonomous-Robot-Lab/emcl2_ros2)
+
 emcl is an alternative Monte Carlo localization (MCL) package to amcl (http://wiki.ros.org/amcl). Differently from amcl, KLD-sampling and adaptive MCL are not implemented. Instead, the expansion resetting and other features are implemented[^1][^2].
 
 This package is an improved version of [ryuichi/emcl](https://github.com/ryuichiueda/emcl). This version works well in crowded or outdoor environments. 
